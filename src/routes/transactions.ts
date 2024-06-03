@@ -5,7 +5,9 @@ import { knex } from '../database'
 import { checkSessionIdExists } from '../middlewares/check-session-id-exists'
 
 export async function transactionsRoutes(app: FastifyInstance) {
-    app.post('/', async (request, reply) => {
+    app.post(
+        '/', 
+        async (request, reply) => {
         const createTransactionBodySchema = z.object({
             title: z.string(), 
             amount: z.number(), 
