@@ -22,7 +22,7 @@ describe('Transactions routes', () => {
         await request(app.server)
             .post('/transactions')
             .send({
-                title: 'Teste',
+                title: 'Test Credit',
                 amount: 100,
                 type: 'credit'
             })
@@ -33,7 +33,7 @@ describe('Transactions routes', () => {
         const createTransactionResponse = await request(app.server)
             .post('/transactions')
             .send({
-                title: 'Teste',
+                title: 'Test Credit 2',
                 amount: 100,
                 type: 'credit'
             })
@@ -47,16 +47,17 @@ describe('Transactions routes', () => {
 
         expect(listTransactionsResponse.body.transactions).toEqual([
             expect.objectContaining({
-                title: 'Teste',
+                title: 'Test Credit 3',
                 amount: 100,
             })
         ])
     })
+    
     test('User should be able to get a specific transaction', async () => {
         const createTransactionResponse = await request(app.server)
             .post('/transactions')
             .send({
-                title: 'Teste',
+                title: 'Test Credit 4',
                 amount: 100,
                 type: 'credit'
             })
@@ -77,16 +78,17 @@ describe('Transactions routes', () => {
 
         expect(getTransactionResponse.body.transaction).toEqual(
             expect.objectContaining({
-                title: 'Teste',
+                title: 'Test Credit 5',
                 amount: 100,
             })
         )
     })
+
     test('User should be able to get your summary', async () => {
         const createTransactionResponse = await request(app.server)
             .post('/transactions')
             .send({
-                title: 'Teste',
+                title: 'Test Credit 6',
                 amount: 100,
                 type: 'credit'
             })
